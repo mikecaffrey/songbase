@@ -8,10 +8,19 @@ def index():
     # return "<h1>this is the index page!<h1>"
     return "<h1>this is me</h1>"
 
+@app.route('/songs')
+def get_all_songs():
+    songs = [
+        'song 1'
+        'song 2'
+        'song 3'
+    ]
+    return render_template ('songs.html', songs=songs)
+
 
 @app.route('/user/<string:name>/')
 def get_user(name):
-    return '<h1>hello %s your age is %d</h1>' % (name, 3)
+    return render_template('user.html', user_name=name)
 
 
 # https://goo.gl/Pc39w8 explains the following line
